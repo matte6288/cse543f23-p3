@@ -1,0 +1,41 @@
+==================== Parsing Policy Commands ====================
+AddLattice[p2]: level: internet 
+AddLattice[p2]: level: user > internet 
+AddLattice[p3]: level: system > user 
+AddLabelPolicy[p4]: Add mapping for name f1 to level internet
+AddLabelPolicy[p5]: Add mapping for name f2 to level system
+AddLabelPolicy[p6]: Add mapping for name user1 to level user
+AddLabelPolicy[p7]: Add mapping for name user10 to level system
+AddTransPolicy[p8]: on EXEC, if subject level is user and object level is system, 
+			 then transition PROCESS to level system
+
+==================== Parsing Policy was Successful ====================
+
+==================== Parsing Test Execution Commands ====================
+labelFile[t1]: Setting label successful for file f1 to internet
+labelFile[t5]: Setting label successful for file f2 to system
+labelProcess[t9]: Setting label successful for process p1 to user
+labelProcess[t13]: Setting label successful for process p10 to system
+labelProcess[t17]: Setting label successful for process p2 to user
+checkTrans[t21]: trans PROCESS p2 to system
+checkAccess[t21]: ALLOW! proc: p2 may exec on file: f2
+labelFile[t26]: Setting label successful for file f3 to system
+checkAccess[t30]: ALLOW! proc: p2 may read on file: f3
+checkAccess[t30]: ALLOW! proc: p2 may write file: f3
+checkAccess[t34]: ALLOW! proc: p2 may read on file: f1
+checkAccess[t38]: ALLOW! proc: p2 may read on file: f3
+checkAccess[t42]: ALLOW! proc: p2 may write file: f3
+checkAccess[t46]: ALLOW! proc: p1 may read on file: f3
+checkAccess[t46]: DENY! write: process p1 for file f3
+checkAccess[t50]: ALLOW! proc: p2 may write file: f3
+labelProcess[t54]: Setting label successful for process p11 to system
+checkAccess[t58]: DENY! p11: process exec for file f1
+labelFile[t62]: Setting label successful for file f10 to internet
+checkAccess[t66]: ALLOW! proc: p11 may read on file: f10
+checkAccess[t66]: ALLOW! proc: p11 may write file: f10
+checkAccess[t70]: ALLOW! proc: p11 may read on file: f1
+checkAccess[t74]: ALLOW! proc: p11 may read on file: f1
+checkAccess[t78]: ALLOW! proc: p10 may write file: f3
+
+==================== Test Execution was Successful ====================
+
