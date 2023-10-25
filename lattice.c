@@ -88,7 +88,7 @@ int addLattice( FILE *fh, char *low, char *high ){
     Outputs     : 0 if successfully completed, -1 if failure
 
 ***********************************************************************/
-int addLabelPolicy( FILE *fh, char *name, char *level ){
+int addLabelPolicy( FILE *fh, char *name, char *level_char ){
 
     element *new;
 
@@ -103,7 +103,7 @@ int addLabelPolicy( FILE *fh, char *name, char *level ){
 
     /* add the above element to label mappings */ 
 	insert( &label_mapping, new, NULL );	
-	fprintf( fh, "AddLabelPolicy[p%d]: Add mapping for name %s to level %s\n", cmdCt, name, level );	
+	fprintf( fh, "AddLabelPolicy[p%d]: Add mapping for name %s to level %s\n", cmdCt, name, level_char );	
 	return 0;
 }
 

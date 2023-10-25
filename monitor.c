@@ -252,14 +252,16 @@ int checkTrans( FILE *fh, char *proc, char *file, int op, int ttype ){
 		if ( op & testop ) {
 			/* YOUR CODE GOES HERE */
 
-			/* log result */
-			char *level = (char *) malloc( apply->new->len+1 );
-			strncpy( level, apply->new->name, apply->new->len );
-			level[apply->new->len] = 0;
-			fprintf( fh, "checkTrans[t%d]: trans %s %s to %s\n", cmdCt,
-				 ((ttype & T_PROC) ? "PROCESS" : "FILE" ), 
-				 ((ttype & T_PROC) ? proc : file ), level );
-			free( level );
+			if(/* YOUR CODE GOES HERE */){
+				/* log result */
+				char *level = (char *) malloc( apply->new->len+1 );
+				strncpy( level, apply->new->name, apply->new->len );
+				level[apply->new->len] = 0;
+				fprintf( fh, "checkTrans[t%d]: trans %s %s to %s\n", cmdCt,
+					((ttype & T_PROC) ? "PROCESS" : "FILE" ), 
+					((ttype & T_PROC) ? proc : file ), level );
+				free( level );
+			}
 		}
 	}
 

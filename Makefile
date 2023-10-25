@@ -19,9 +19,9 @@ TARGETS=cse543-p3
 LIBS=-lgcrypt 
 
 # Project Protections
-p2 : $(TARGETS)
+p3 : $(TARGETS)
 
-cse543-p2 : monitor.o lattice.o linked-list.o utils.o
+cse543-p3 : monitor.o lattice.o linked-list.o utils.o
 	$(LINK) $(LDFLAGS) monitor.o linked-list.o lattice.o utils.o $(LIBS) -o $@
 
 clean:
